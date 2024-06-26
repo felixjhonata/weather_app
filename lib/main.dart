@@ -57,163 +57,175 @@ class MainApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 30),
-                    Text(
-                      data.location,
-                      style: GoogleFonts.poppins(
-                        textStyle: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Today ',
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          TextSpan(
-                            text:
-                                "- ${currentDate.day.toString().padLeft(2, '0')}/${currentDate.month.toString().padLeft(2, '0')}/${currentDate.year.toString().padLeft(2, '0')}",
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 60),
-                Center(
+                Expanded(
+                  flex: 2,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      SizedBox(
-                        height: 180,
-                        width: 180,
-                        child: SvgPicture.asset(
-                          "lib/assets/${data.getSvgPath(isNight)}",
-                        ),
-                      ),
-                      const SizedBox(height: 40),
                       Text(
-                        "Weather",
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        data.name.toUpperCase(),
+                        data.location,
                         style: GoogleFonts.poppins(
                           textStyle: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 35,
+                            fontSize: 20,
                           ),
                         ),
                       ),
-                      Text(
-                        "${data.temp}°C",
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                          ),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Today ',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            TextSpan(
+                              text:
+                                  "- ${currentDate.day.toString().padLeft(2, '0')}/${currentDate.month.toString().padLeft(2, '0')}/${currentDate.year.toString().padLeft(2, '0')}",
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 70),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SvgPicture.asset(
-                        "lib/assets/humidity.svg",
-                        height: 66,
-                      ),
+                Expanded(
+                  flex: 13,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 180,
+                          width: 180,
+                          child: SvgPicture.asset(
+                            "lib/assets/${data.getSvgPath(isNight)}",
+                          ),
+                        ),
+                        const SizedBox(height: 40),
+                        Text(
+                          "Weather",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          data.name.toUpperCase(),
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 35,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "${data.temp}°C",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: SvgPicture.asset(
-                        "lib/assets/wind.svg",
-                        width: 66,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-                const SizedBox(height: 20),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
+                Expanded(
+                  flex: 5,
+                  child: Column(
+                    children: [
+                      Row(
                         children: [
-                          Text(
-                            "Humidity",
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
+                          Expanded(
+                            child: SvgPicture.asset(
+                              "lib/assets/humidity.svg",
+                              height: 66,
                             ),
                           ),
-                          Text(
-                            "${data.humidity}%",
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                              ),
+                          Expanded(
+                            child: SvgPicture.asset(
+                              "lib/assets/wind.svg",
+                              width: 66,
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    Expanded(
-                      child: Column(
+                      const SizedBox(height: 20),
+                      Row(
                         children: [
-                          Text(
-                            "Wind Speed",
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Humidity",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "${data.humidity}%",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Text(
-                            "${data.wind}m/s",
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                              ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Wind Speed",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "${data.wind}m/s",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
