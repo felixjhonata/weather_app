@@ -41,6 +41,7 @@ class MainApp extends StatelessWidget {
     bool isNight = currentDate.hour >= 21 || currentDate.hour <= 6;
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
