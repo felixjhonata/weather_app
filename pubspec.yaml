@@ -1,5 +1,5 @@
 name: weather_app
-description: "A new Flutter project."
+description: "A simple Weather app by SupXian."
 publish_to: 'none'
 version: 0.1.0
 
@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.10+1
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,15 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - "lib/assets/cloudy_day.svg"
+    - "lib/assets/cloudy_night.svg"
+    - "lib/assets/cloudy.svg"
+    - "lib/assets/humidity.svg"
+    - "lib/assets/night.svg"
+    - "lib/assets/rainy.svg"
+    - "lib/assets/snowy.svg"
+    - "lib/assets/sunny.svg"
+    - "lib/assets/thunderstorm.svg"
+    - "lib/assets/wind.svg"
